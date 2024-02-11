@@ -4,10 +4,10 @@
 ;; version: 0.1.0
 ;; ; repository: « https://github.com/RickBarretto
 ;;
-;; export: [:state]
+;; export: [:states]
 
-define :state [
-    ; description: « :state represents a simple Finite State Machine (FSM)
+define :states [
+    ; description: « :states represents a simple Finite State Machine (FSM)
     ;
     ; note: « All symbols inside transitions will be ignored
     ; usage: {

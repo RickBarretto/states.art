@@ -1,8 +1,8 @@
-import ./{state}!
+import ./{states}!
 
 ; --- Turnstile example --- 
 
-turnstile: to :state ['locked [
+turnstile: to :states ['locked [
     push        /  locked    ~>  locked
     push        /  unlocked  ~>  locked
     insertCoin  /  locked    ~>  unlocked
@@ -19,7 +19,7 @@ do [
 
 ; --- Video Player example --- 
 
-video: to :state ['stopped [
+video: to :states ['stopped [
     play   *  paused   =>  playing
     play   *  stopped  =>  playing
     pause  *  playing  =>  paused

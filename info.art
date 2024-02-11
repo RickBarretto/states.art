@@ -1,3 +1,3 @@
-entry: {state}
+entry: {states}
 depends: []
 requires: [> 0.9.83]
