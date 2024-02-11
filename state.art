@@ -8,8 +8,6 @@
 
 define :state [
     ; description: « :state represents a simple Finite State Machine (FSM)
-    ; 
-    ; 
 
     init: method [initialState transitions][
 
