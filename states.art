@@ -34,6 +34,8 @@ define :states [
                                     | gather => first)
         
         loop transitions [key val][
+            ensure.that: "'state can't be set as an event" 
+                -> key <> "state"
             ensure.that: "All needed parameters were used" 
                 -> all? map val 'blk -> 3 = size blk
             
