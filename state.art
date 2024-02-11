@@ -1,0 +1,83 @@
+;; author: « RickBarretto
+;; year: 2024
+;; licence: « MIT
+;; version: 0.1.0
+;; ; repository: « https://github.com/RickBarretto
+;;
+;; export: [:state]
+
+define :state [
+    ; description: « :state represents a simple Finite State Machine (FSM)
+    ; 
+    ; 
+
+    init: method [initialState transitions][
+
+        transitions: (filter transitions => symbol? 
+                                    | map 'x -> to :literal x
+                                    | split.every: 3
+                                    | gather => first)
+        
+        loop transitions [key val][
+            ensure.that: "All needed parameters were used" 
+                -> all? map val 'blk -> 3 = size blk
+            
+            ; This macro creates a method like:
+            ;
+            ; this\insertCoin: method [][
+            ;   this\change [
+            ;       ['insertCoin 'locked 'unlocked]   
+            ;       ['insertCoin 'unlocked 'unlocked]   
+            ; ]
+
+            this\[key]: method []
+                [this\_change] ++ @[val]
+        ]
+
+        this\_state: initialState
+        this\transitionError: to :errorKind 
+            "The machine was not able to transite between states"
+    ]
+
+    state: method [][
+        ; description: « Returns the current state of your FSM.
+        this\_state
+    ]
+
+    changeFrom: method [event :literal][
+        ; description: « Transite between states from an 'event
+
+        if throws? -> this\[event]
+            -> throw.as: this\transitionError
+                ~"The machine has not the '|event| trigger"
+        
+        call this\[event] []
+    ]
+
+    _change: method [transitions][
+        ; description: « the internal method that changes the state
+        ; 
+        ; Explanation: {
+        ;     this will pass all available transitions for an event,
+        ;     so this will match the right transition based on 
+        ;     the current state.
+        ; }
+        loop transitions 'transition [
+            currentState: transition\1
+            newState:     transition\2
+
+            if currentState = this\_state [ 
+                this\_state: newState
+                return this\_state
+            ]
+
+        ]
+
+        event: transitions\0\0
+
+        throw.as: this\transitionError 
+             ~"The machine was not able to transite from '|this\state| by '|event|"   
+    ]
+
+
+]

@@ -1,0 +1,41 @@
+import ./{state}!
+
+; --- Turnstile example --- 
+
+turnstile: to :state ['locked [
+    push        /  locked    ~>  locked
+    push        /  unlocked  ~>  locked
+    insertCoin  /  locked    ~>  unlocked
+    insertCoin  /  unlocked  ~>  unlocked
+]]
+
+do [
+    turnstile\state         | print
+    turnstile\push          | print
+    turnstile\insertCoin    | print
+    turnstile\insertCoin    | print
+    turnstile\push          | print
+]
+
+; --- Video Player example --- 
+
+video: to :state ['stopped [
+    play   *  paused   =>  playing
+    play   *  stopped  =>  playing
+    pause  *  playing  =>  paused
+    stop   *  playing  =>  stopped
+    stop   *  paused   =>  stopped
+]]
+
+do [
+    video\state     | print 
+    video\play      | print
+    video\pause     | print
+    video\stop      | print
+
+    video\changeFrom 'play  | print
+    video\changeFrom 'stop  | print
+    
+    ; This will raise an exception
+    video\pause     | print
+]

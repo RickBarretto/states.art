@@ -1,0 +1,3 @@
+entry: {state}
+depends: []
+requires: [> 0.9.83]
