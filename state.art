@@ -8,8 +8,25 @@
 
 define :state [
     ; description: « :state represents a simple Finite State Machine (FSM)
+    ;
+    ; note: « All symbols inside transitions will be ignored
+    ; usage: {
+    ;     turnstile: to :state ['locked [
+    ;         push        /  locked    ~>  locked
+    ;         push        /  unlocked  ~>  locked
+    ;         insertCoin  /  locked    ~>  unlocked
+    ;         insertCoin  /  unlocked  ~>  unlocked
+    ;     ]]
+    ;
+    ;     do [
+    ;         turnstile\push          ; => locked
+    ;         turnstile\insertCoin    ; => unlocked
+    ;         turnstile\insertCoin    ; => unlocked
+    ;         turnstile\push          ; => locked
+    ;     ]
+    ; }
 
-    init: method [initialState transitions][
+    init: method [initialState :literal :word transitions :block][
 
         transitions: (filter transitions => symbol? 
                                     | map 'x -> to :literal x
