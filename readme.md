@@ -89,9 +89,9 @@ turnstile\changeFrom 'insertCoin
 > Background photo on ["At a Glance"](#at-a-glance) 
   by [Jack Anstey](https://unsplash.com/@jack_anstey?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/aerial-photography-of-road-zS4lUqLEiNA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
 
-[^harph]: You can find him on [Twitter][harrington-twitter] or [Github][harrington-github] by @harph.
+[^harph]: You can find him on [Twitter][harrington-twitter] or [Github][harrington-github] as @harph.
 
-[^talk]: "*When Booleans Are Not Enough... State Machines?*" by *Harrington Joseph* can find this talk in two places, on the Channel [*Next Day Video*][next-day-channel] Presented on [*PyTexas 2019*][next-day-video] and on the Channel [*SF Python*][sf-python-channel] presented on [*SF Python Meetup Feb 2019*][sf-python-video].
+[^talk]: "*When Booleans Are Not Enough... State Machines?*" by *Harrington Joseph* can be found in two places, on the Channel [*Next Day Video*][next-day-channel] Presented on [*PyTexas 2019*][next-day-video] and on the Channel [*SF Python*][sf-python-channel] presented on [*SF Python Meetup Feb 2019*][sf-python-video].
 
 [harrington-twitter]: https://x.com/harph
 [harrington-github]: https://github.com/harph
