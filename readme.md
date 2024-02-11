@@ -33,6 +33,9 @@
 This package was highly inspired by [*Harrington Joseph*][harrington-twitter]'s [^harph] talk ["*When Booleans Are Not Enough... State Machines?*"][next-day-video] [^talk].
 By consequence, this is inspired by the [pytransitions][pytransitions] package.
 
+> [!TIP]
+> If you want to know why you need a FSM, I recommend you to watch his talk first.
+
 ## Trying *:states*
 
 Defining a finite state-machine is simple like that:
